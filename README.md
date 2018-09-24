@@ -1,28 +1,19 @@
 # Slack LaTeX
-#### Bot to convert LaTeX code in messages into:
+A bot that will automatically render LaTeX as `.png` files in Slack. Forked from https://github.com/sand500/SlackLateX.
 
-![screen]
+## Setup
+To install, clone this repository and install the following modules within it:
 
-### Setup:
-1. Clone/download this repository.
-2. Install required modules in the project folder with:
-    ```
-    npm install fs
-    npm install request
-    npm install websocket
-    ```
-3. Create a `secret.txt` file in the bot directory and put your slack token in it.
-4. Start bot by running `node bot.js` or `nodejs bot.js`
+```
+npm install fs request websocket
+```
 
-### Usage:
+In Slack, go to Apps -> Browse Apps -> Install Slack bots -> Add configuration, and add the bot from there. Copy the API key into `secret.txt`, and then run with `node bot.js`.
 
-Add the bot to the channel you want to enable SlackLaTeX in. Any message with the following format will be turned into an image when bot is enabled.
+## Usage
+You can add the bot to a channel by inviting it to that channel. The following will be rendered as LaTeX in a channel that the bot has joined:
  * `$\LaTeX code$`
  * `` `$\LaTeX code$` ``
  * `` ```$\LaTeX code$``` ``
 
-You can also edit or delete a message and the bot will do the right thing.
-
-In Slack, type `..stopLatex` to disable bot and `..startLatex` to re-enable bot. This only applies the user and channel that typed this. By default, it will work for all users in every channel the box exists.
-
-[screen]:http://i.imgur.com/7xbkJ6P.png
+In Slack, type `..stopLatex` to disable bot and `..startLatex` to re-enable bot. This only applies the user and channel that typed this.
