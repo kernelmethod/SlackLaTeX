@@ -62,8 +62,9 @@ fi
 # Run in an infinite loop, so that bot restarts every time node exits
 while :; do
 	echo "[$(date) ($TEXBOT_CONFIG)] Starting SlackLaTeX bot" >> $TEXBOT_LOG_FILE
-	cd /usr/local/bin/bot/texbot/SlackLaTeX
-	node ./bot.js
+	BOT_PATH=$(dirname $0 | xargs realpath)
+	cd $BOT_PATH
+	node "$BOT_PATH/SlackLaTeX_bot.js"
 
 	# Sleep for one minute to prevent issues such as infinite spam
 	echo "[$(date) ($TEXBOT_CONFIG)] SlackLaTeX bot exited" >> $TEXBOT_LOG_FILE

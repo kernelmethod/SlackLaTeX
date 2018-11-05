@@ -7,7 +7,7 @@
  **********/
 let request       = require("request");
 let parser        = require("./parser.js");
-let bot           = require("./bot.js")
+let bot           = require("./SlackLaTeX_bot.js")
 let child_process = require("child_process");
 
 let WebSocketClient = require('websocket').client;
