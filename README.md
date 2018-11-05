@@ -33,8 +33,6 @@ secrets/myworkspace.json:
 	'owner': 'U4EYQVC6R',
 	'log': 'logs/myworkspace.log',
 	'overwrite-log': true
-	'log': 'logs/myworkspace.log',
-	'overwrite-log': true
 }
 ```
 
