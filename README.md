@@ -22,6 +22,7 @@ export RESTART=true
 export RESTART_SLEEP_TIME="1m"
 ```
   `SLACK_CONFIG` gives the path (relative to `texbot.sh`) where it's possible to get the second configuration file (see below), and is the only variable required to be set. For more information, see the Configuration section below.
+  
 2. A `.json` file with some configurations tailored to the specific workspace. Here's an sample configuration:
 
 ```
