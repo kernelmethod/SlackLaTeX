@@ -80,7 +80,7 @@ function createWS(url) {
 
 		/* List users in the workspace. Can be used to find the UID of a
 		 * specific user. */
-		let users;
+		let users = {};
 		request("https://slack.com/api/users.list?token=" + global.token,
 			(err, response, body) => {
 				if ( err )
@@ -92,18 +92,14 @@ function createWS(url) {
 
 		/* When starting up, give some information about the bot to its
 		 * owner */
-		let date = new Date();
 		if ( "notify-owner" in bot.config &&
 			bot.config["notify-owner"] )
 		{
-			let msg = "[" + date.getDate() + "-" +
-				(1 + date.getMonth())  + "-" +
-				date.getFullYear()     + " " +
-				date.getHours()        + ":" +
-				date.getMinutes()      + ":" +
-				date.getSeconds() + "] Bot started";
+			let msg = parser.timestamp() + "Bot started"
 			notifyOwner(msg);
-			child_process.exec("ifconfig", (err, stdout, stderr) => {
+			child_process.exec("ifconfig",
+				(err, stdout, stderr) => 
+			{
 			if ( !err ) {
 				parser.log( 
 					"Notifying bot owner of bot's " +

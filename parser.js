@@ -22,12 +22,21 @@ let replace_mappings = {
  **********/
 
 /*
+ * Extracts a timestamp to prepend to a message
+ */
+function timestamp() {
+	return "[" + (new Date()).toString() + "] "
+}
+
+/*
  * Used to perform logging. Currently disabled (running this function will have
  * no effect).
  */
 function log(message) {
+	let log_msg = timestamp() + message + "\n"
+
 	if ( "log" in bot.config ) {
-		connect.fs.appendFile(bot.config["log"], message + "\n", (err) => {
+		connect.fs.appendFile(bot.config["log"], log_msg, (err) => {
 			if ( err ) {
 				console.error( "Unable to append to log file (" +
 					bot.config["log"] + ")" )
@@ -188,13 +197,14 @@ function replaceAll(str, replace_dict) {
 /**********
  * Module exports
  **********/
-module.exports.log		   = log
-module.exports.postLatex	 = postLatex
+module.exports.timestamp     = timestamp
+module.exports.log           = log
+module.exports.postLatex     = postLatex
 module.exports.updateLatex   = updateLatex
 module.exports.handleMessage = handleMessage
-module.exports.getLatex	  = getLatex
-module.exports.pong		  = pong
+module.exports.getLatex	     = getLatex
+module.exports.pong          = pong
 module.exports.escapeRegExp  = escapeRegExp
-module.exports.replaceAll	= replaceAll
+module.exports.replaceAll    = replaceAll
 
 

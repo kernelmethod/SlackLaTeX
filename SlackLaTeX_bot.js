@@ -51,9 +51,7 @@ else if ( !('log' in config) ) {
 
 // Notify log that we're starting bot
 let date = new Date();
-parser.log( '[' + date.getDate() + '-' + (1 + date.getMonth()) +
-	'-' + date.getFullYear() + ' ' + date.getHours() + ':' +
-	date.getMinutes() + ':' + date.getSeconds() + '] Bot started' )
+parser.log( 'Bot started' )
 
 /* Start the bot */
 global.token = config['secret'].replace(/[\n\r]/g, '');

@@ -54,9 +54,9 @@ if [ -z ${TEXBOT_LOG_FILE+x} ]; then
 else
 	echo "TEXBOT_LOG_FILE=$TEXBOT_LOG_FILE"
 	if ! [ -f $TEXBOT_LOG_FILE ]; then
-		sudo -u bot touch $TEXBOT_LOG_FILE
+		touch $TEXBOT_LOG_FILE
 	fi
-	sudo -u bot chmod 660 $TEXBOT_LOG_FILE
+	chmod 660 $TEXBOT_LOG_FILE
 fi
 
 # Run in an infinite loop, so that bot restarts every time node exits
